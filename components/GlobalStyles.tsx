@@ -1,0 +1,64 @@
+export default function GlobalStyles() {
+  return (
+    <style jsx global>{`
+      @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap');
+
+      :root {
+        --bg-paper: #FDFBF7;
+        --color-ink: #4A403A;
+        --color-sage: #8FBC8F;
+        --color-rose: #D8BFD8;
+        --color-gold: #DAA520;
+        --color-cream: #F5F1E6;
+        --font-heading: 'Playfair Display', serif;
+        --font-body: 'Lora', serif;
+      }
+
+      body {
+        background-color: #E6E2D6;
+        color: var(--color-ink);
+        font-family: var(--font-body);
+      }
+
+      .font-heading { font-family: var(--font-heading); }
+      .vintage-shadow { box-shadow: 4px 4px 0px rgba(74, 64, 58, 0.1); }
+      .paper-texture {
+        background-color: var(--bg-paper);
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      }
+
+      .sticky-note {
+        background-color: #fffaac;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        transform: rotate(-1deg);
+      }
+
+      .calendar-day.active {
+        background-color: var(--color-gold);
+        color: white;
+        border-radius: 50%;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(74, 64, 58, 0.4);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        padding: 20px;
+      }
+
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      @keyframes float { 0% {transform: translateY(0px);} 50% {transform: translateY(-10px);} 100% {transform: translateY(0px);} }
+      .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      .animate-scale-in { animation: scaleIn 0.3s ease-out; }
+      @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+      .pb-safe-bottom { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+    `}</style>
+  );
+}
